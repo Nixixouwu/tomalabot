@@ -1,0 +1,82 @@
+<app-header [isNotHome]="isNotHome" [pageTitle]="pageTitle"></app-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-buttons>
+      <ion-button color="success" [routerLink]="['/login']" routerLinkActive="router-link-active" >
+        <ion-icon name="log-in-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <strong class="letras">Bienvenido</strong>
+
+   
+    <div class="slider-frame col-12">
+      <ul>
+        <li><img src="../../../assets/img/conductor1.jpg" alt=""></li>
+        <li><img src="../../../assets/img/conductor2.jpg" alt=""></li>
+        <li><img src="../../../assets/img/autito.jpg" alt=""></li>
+        <li><img src="../../../assets/img/teleapp.jpg" alt=""></li>
+        
+      </ul>
+    </div>
+     
+     <div class="letras" style="text-align:center;">
+      <ion-button > <p>Inicia tu viaje &nbsp; </p>
+         <ion-icon name="car-sport-outline"></ion-icon>
+      </ion-button>
+     </div>
+
+     <div style="text-align: center; margin: 15px;">
+      <ion-label style="font-weight: 400; font-size: 1.5em;">Pronóstico del Clima</ion-label>
+     </div>
+     <ion-searchbar [(ngModel)]="cityName" (ngModelChange)="loadData()" placeholder="Busca una ciudad" animated></ion-searchbar>
+
+     <div *ngIf="!loadingClima">
+     <ion-card class="cardStyle">
+      <ion-item lines="none">
+        <p style="font-weight: 500; color: white;">Clima de hoy</p>
+        <ion-label id="date" slot="end"> {{todayDate | date: "EEE dd MMM"}}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <span id="temp">
+          {{(weatherTemp?.temp).toFixed(0)}}
+        </span>
+        <span id="c">
+          °C
+        </span>
+        <img slot="end" [src]=weatherIcon style="width: 5.5em; height: auto;">
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon id="locationIcon" name="location"></ion-icon>
+        <span>{{cityName}}</span>
+      </ion-item>
+
+     </ion-card>
+
+     <ion-card class="cardStyle">
+
+      <ion-item>
+        <span>Temp. máxima</span>
+        <span slot="end">{{(weatherTemp.temp_max).toFixed(0)}}°C</span>
+      </ion-item>
+
+      <ion-item>
+        <span>Temp. mínima</span>
+        <span slot="end">{{(weatherTemp.temp_min).toFixed(0)}}°C</span>
+      </ion-item>
+
+      <ion-item>
+        <span>Humedad</span>
+        <span slot="end">{{weatherTemp.humidity}}%</span>
+      </ion-item>
+
+     </ion-card>
+    </div>
+     
+    <div *ngIf="loadingClima" class="noData">
+      <img src="../../../assets/img/clima.png" height="200px">
+    </div>
+
+</ion-content>
+<app-fab-menu></app-fab-menu>

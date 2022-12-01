@@ -1,0 +1,119 @@
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+img
+{
+    height: 11em;
+    width:  21em;
+}
+
+#container a {
+  text-decoration: none;
+  
+}
+.slider-frame {
+
+  width: 900px;
+  height: auto;
+  margin: 0px auto 0;
+  overflow: hidden;
+
+
+  
+}
+.slider-frame ul {
+ display: flex;
+ padding: 0;
+ width: 400%;
+
+ animation: slide 30s infinite alternate ease-in-out;
+}
+.slider-frame li 
+{
+ list-style: none;
+ width: 100%;
+
+}
+.slider-frame img{
+ will-change: 100%;
+}
+
+
+
+
+@keyframes slide {
+0% {margin-left: 0%;}
+20%{margin-left: 0%;}
+
+25%{margin-left: -100%;}
+45%{margin-left: -100%;}
+ 
+50%{margin-left: -200%;}
+70%{margin-left: -200%;}
+
+75%{margin-left: -300%;}
+95%{margin-left: -300%;}    
+}
+
+.letras{
+  font-family: 'Roboto', sans-serif; 
+}
+
+
+.cardStyle {
+  border-radius: 20px;
+}
+
+ion-item span{
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+
+#temp {
+  font-weight: 400;
+  font-size: 3em;
+  margin: 3px;
+}
+
+#locationIcon {
+  color: #428cff;
+}
+
+#date {
+  color: #428cff;
+}
+
+#c {
+  color: #428cff;
+  font-size: large;
+  font-weight: 500;
+}
+
+.noData{
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
